@@ -32,6 +32,7 @@ const useGetTodo = () => {
     return () => {
       abortController.abort();
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return { isLoading, error };
 };

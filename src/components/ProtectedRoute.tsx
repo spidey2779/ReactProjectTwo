@@ -18,6 +18,7 @@ const ProtectedRoute: React.FC = () => {
           navigate("/login");
         }
       } catch (error) {
+        navigate("/login");
         return;
       }
     };
@@ -28,7 +29,7 @@ const ProtectedRoute: React.FC = () => {
       dispatch(stopLoading());
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, user.login]);
+  }, []);
 
   // Render the nested routes if the user is authenticated
   return <Outlet />;
