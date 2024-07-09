@@ -22,12 +22,14 @@ const ProtectedRoute: React.FC = () => {
         return;
       }
     };
-
     if (!user.login && document.cookie.length > 0) {
       dispatch(startLoading());
       mycheck();
       dispatch(stopLoading());
+    } else if (!user.login && document.cookie.length === 0) {
+      navigate("/login");
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
